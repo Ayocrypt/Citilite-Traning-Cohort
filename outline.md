@@ -1,45 +1,46 @@
 # Citlite — Session outline (~60 min)
 
-**Title:** Vibe coding to a live URL — *spec → z.ai → QA → Vercel/Netlify*  
+**Title:** Vibe coding to a live URL — *spec → z.ai → QA → Vercel/Netlify*
 
-**Positioning:** This is a **sampler**: show what is *possible* and a **few** habits from how you teach internally. **Do not** ship the full paid curriculum, folder structure, or week-by-week content.
+**Facilitator:** [Ayobami Akinlolu-ojo](https://github.com/Ayocrypt) · CTO & Founder · [AI4Africa](https://ai4africa.app)
+
+![Ayobami Akinlolu-ojo](https://avatars.githubusercontent.com/u/169593272?v=4)
 
 ---
 
-## Minute-by-minute (high energy, one shipped story)
+## Minute-by-minute
 
 | Block | Time | You do / they do |
 |-------|------|------------------|
 | **Hook** | 0–5 | *“Speed with a spec—not vibes without a brain.”* Ask: *One page you’d ship in 45 minutes?* |
-| **Theory bite** | 5–12 | Three bullets: outcome + constraints; generate; **you** test. Show the loop on **`citlite-visual.excalidraw`** (don’t dump your full internal lesson plan). |
-| **Demo A — Spec** | 12–18 | Live: **acceptance criteria** for a clear mini page (hero, 3 bullets, CTA, footer). Bad vague prompt vs testable spec. |
-| **Demo B — z.ai** | 18–35 | Live: generate in **z.ai** (or backup builder). Narrate: role, goal, constraints, format. |
-| **Demo C — QA** | 35–42 | Mobile width, CTA, headline read aloud, **one** accessibility sanity check (e.g. heading order or focus). |
-| **Demo D — Deploy** | 42–52 | **Vercel *or* Netlify** — one path only. Show URL on a phone. |
-| **Limits** | 52–58 | Rapid **“won’t scale on static / builder alone”** list (auth, webhooks, server AI, roles, real data model, …). Optional one line: *full depth is in the paid program* — no spoilers, no file paths. |
-| **Close** | 58–60 | One paragraph: *when you’d stop “vibing” and engineer properly.* |
+| **Theory bite** | 5–12 | Outcome + constraints; generate; **you** test. Show [citlite-visual.excalidraw](citlite-visual.excalidraw). |
+| **Demo A — Spec** | 12–18 | **Acceptance criteria** for a mini page (hero, 3 bullets, CTA, footer). Vague vs testable spec. |
+| **Demo B — z.ai** | 18–35 | Generate in **z.ai** (or backup builder). Role, goal, constraints, format. |
+| **Demo C — QA** | 35–42 | Mobile width, CTA, headline aloud, one **a11y** check (heading order or focus). |
+| **Demo D — Deploy** | 42–52 | **Vercel** *or* **Netlify** — one path. Open URL on a phone. |
+| **Limits** | 52–58 | What static / builder-only stacks won’t carry (auth, webhooks, server AI, roles, data model, …). |
+| **Close** | 58–60 | One paragraph: when you’d stop vibing and engineer properly. |
 
 ---
 
-## Optional homework (light)
+## Optional homework
 
-- Short spec + 5 acceptance checks.  
-- Screenshot or link to generated UI.  
-- Public URL + one line: *what the model got wrong.*
-
----
-
-## Instructor cheatsheet
-
-- **z.ai blocked?** Any UI generator you trust — same arc.  
-- **Deploy fails?** Show the error; debugging in public is the lesson.  
-- **Boundary:** extract **patterns**, not **packs** — paying students get the structured track; this room gets the **taste**.
+- Short spec + 5 acceptance checks  
+- Screenshot or link to z.ai output  
+- Public URL + one line: what the model got wrong
 
 ---
 
-## Files in this folder
+## Instructor notes
 
-- `theory.md` — your prep.  
-- `citlite-visual.excalidraw` — projector flow.  
-- `.presentation/deck-outline.md` — slide prompts.  
-- `README.md` — how Citlite stays separate from main teaching folders.
+- **z.ai blocked?** Use another UI generator — same flow.  
+- **Deploy fails?** Show the error and walk through the fix.
+
+---
+
+## Files
+
+- [theory.md](theory.md)  
+- [citlite-visual.excalidraw](citlite-visual.excalidraw)  
+- [.presentation/deck-outline.md](.presentation/deck-outline.md)  
+- [README.md](README.md)

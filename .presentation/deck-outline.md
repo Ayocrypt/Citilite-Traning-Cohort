@@ -1,56 +1,53 @@
-# Citlite — Presentation deck outline
+# Citlite — Deck (slide copy)
 
-Use as **slide prompts** (Slides, Canva, etc.). Demos carry the session.
-
-**Positioning slide (say it once):** standalone public taste — **not** the full paid program.
+Demos carry the session. Copy each block into Slides, Canva, or Gamma.
 
 ---
 
 ## Slide 1 — Title
 - **Citlite** — From vibe to live URL  
-- Sub: *A short sampler* (optional: your org / AI4Africa)  
-- Your name
+- **Ayobami Akinlolu-ojo** · CTO & Founder · [AI4Africa](https://ai4africa.app)  
+- ![Ayobami Akinlolu-ojo](https://avatars.githubusercontent.com/u/169593272?v=4)
 
-## Slide 2 — The promise
-- Today: **spec → generate → QA → deploy**  
-- You leave with: **one URL** + **one honest limit**
+## Slide 2 — Today
+- **spec → generate → QA → deploy**  
+- **One live URL** + **one clear limit**
 
-## Slide 3 — What vibe coding is *not*
+## Slide 3 — Vibe coding is not
 - Not: random prompting  
 - Not: “the AI owns the product”  
-- Yes: **you** own spec, checks, ship
+- **You** own spec, checks, ship
 
 ## Slide 4 — The loop
-- `citlite-visual.excalidraw` or export  
+- [citlite-visual.excalidraw](../citlite-visual.excalidraw) (projector)  
 - **Outcome → constraints → generate → inspect → refine**
 
-## Slide 5 — Tool: z.ai
-- Fast page / sections / copy  
-- Speed vs control vs export (mention only; no internal syllabus)
+## Slide 5 — z.ai
+- Fast page · sections · copy  
+- Trade-off: speed vs control vs export
 
-## Slide 6 — Tool: Vercel / Netlify
+## Slide 6 — Vercel / Netlify
 - HTTPS from Git or build output  
-- Pattern: build → host → share
+- **build → host → share**
 
-## Slide 7 — Demo roadmap
+## Slide 7 — Live demo
 1. Spec  
 2. z.ai  
 3. QA (3 checks)  
 4. Deploy
 
 ## Slide 8 — QA
-- Mobile · links · headings/focus · copy
+- Mobile · links · headings / focus · copy
 
-## Slide 9 — When builders stop
-- Auth, server logic, webhooks, real data, …
+## Slide 9 — Where builders stop
+- Auth · server logic · webhooks · real data · …
 
-## Slide 10 — Assignment
-- Paragraph: when vibing stops and engineering starts  
+## Slide 10 — Takeaway
+- Short write-up: when vibing stops and engineering starts  
 - Optional: URL + screenshot
 
 ## Slide 11 — Q&A
-- “What broke?” is fine — that is the job
 
 ---
 
-*Optional footer:* org credit to match diagram watermark.
+**Footer (optional):** AI4Africa · [ai4africa.app](https://ai4africa.app)
