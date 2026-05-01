@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnEdge — Grow Your Skills With Expert-Led Learning</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: { 400: '#D4AF37', 500: '#C5A028', 600: '#B08D22' },
+            dark: { 950: '#050505', 900: '#0A0A0A', 800: '#121212', 700: '#1C1C1C' }
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+            audiowide: ['Audiowide', 'sans-serif']
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'scroll-infinite': 'scrollInfinite 20s linear infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'scan': 'scan 4s linear infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            scrollInfinite: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' }
+            },
+            scan: {
+              '0%': { top: '-10%', opacity: '0' },
+              '10%': { opacity: '1' },
+              '90%': { opacity: '1' },
+              '100%': { top: '110%', opacity: '0' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #050505; color: #fff; overflow-x: hidden; }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    .glass-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      transition: all 500ms;
+    }
+    .glass-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(212,175,55,0.2);
+    }
+
+    .text-gradient {
+      background: linear-gradient(to right, #fff, #e4e4e7, #71717a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gold-glow { box-shadow: 0 0 20px rgba(212,175,55,0.3); }
+    .gold-glow:hover { box-shadow: 0 0 30px rgba(212,175,55,0.6); }
+
+    .hero-overlay {
+      background: linear-gradient(to right, #050505, rgba(10,10,10,0.8), rgba(10,10,10,0.2));
+    }
+    .hero-bottom {
+      background: linear-gradient(to top, #050505, transparent);
+    }
+
+    .mask-fade {
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+
+    .step-line { position: relative; }
+    .step-line::after {
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 48px;
+      bottom: -24px;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(212,175,55,0.3), transparent);
+    }
+    .step-line:last-child::after { display: none; }
+
+    .pricing-popular {
+      border: 1px solid rgba(212,175,55,0.4);
+      background: linear-gradient(to bottom, rgba(212,175,55,0.05), transparent);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-anim { animation: float 6s ease-in-out infinite; }
+
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="font-inter antialiased">
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="bg-dark-800 border-b border-white/5 py-2 px-4 text-xs text-zinc-400 relative z-50 hidden md:block">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-1.5">
+          <iconify-icon icon="lucide:map-pin" width="12"></iconify-icon>
+          Lagos, Nigeria
+        </span>
+        <span class="flex items-center gap-1.5">
+          <iconify-icon icon="lucide:phone" width="12"></iconify-icon>
+          +234 916 162 3013
+        </span>
+        <span class="flex items-center gap-1.5">
+          <iconify-icon icon="lucide:mail" width="12"></iconify-icon>
+          learnedge@gmail.com
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Mon - Sat | 09:00 AM - 05:00 PM</span>
+        <div class="flex items-center gap-3 ml-4">
+          <a href="#" class="hover:text-gold-400 transition-colors"><iconify-icon icon="lucide:facebook" width="14"></iconify-icon></a>
+          <a href="#" class="hover:text-gold-400 transition-colors"><iconify-icon icon="lucide:twitter" width="14"></iconify-icon></a>
+          <a href="#" class="hover:text-gold-400 transition-colors"><iconify-icon icon="lucide:instagram" width="14"></iconify-icon></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar" class="fixed top-0 md:top-[33px] left-0 right-0 z-40 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="block">
+        <img src="https://citilitemediasolutions.com/wp-content/uploads/2025/02/logo-tag-1024x463.png" alt="LearnEdge Logo" class="h-10 w-auto object-contain">
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center bg-zinc-900/60 backdrop-blur-md border border-white/10 rounded-full px-8 py-3">
+        <a href="#home" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4">Home</a>
+        <a href="#about" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4">About Us</a>
+        <a href="#services" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4">Our Services</a>
+        <a href="#process" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4">Process</a>
+        <a href="#pricing" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4">Pricing</a>
+        <a href="#mentorship" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4">Mentorship</a>
+        <a href="#contact" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4">Contact</a>
+      </div>
+
+      <div class="hidden lg:block">
+        <a href="#pricing" class="bg-gold-400 text-dark-950 font-semibold text-sm px-6 py-2.5 rounded-full hover:bg-gold-500 transition-all gold-glow">
+          Get Started
+        </a>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button id="mobileToggle" class="lg:hidden text-white p-2">
+        <iconify-icon icon="lucide:menu" width="24" id="menuIcon"></iconify-icon>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="lg:hidden hidden bg-dark-900/95 backdrop-blur-xl border-t border-white/5 px-6 pb-6">
+      <a href="#home" class="block py-3 text-sm text-zinc-400 hover:text-white border-b border-white/5">Home</a>
+      <a href="#about" class="block py-3 text-sm text-zinc-400 hover:text-white border-b border-white/5">About Us</a>
+      <a href="#services" class="block py-3 text-sm text-zinc-400 hover:text-white border-b border-white/5">Our Services</a>
+      <a href="#process" class="block py-3 text-sm text-zinc-400 hover:text-white border-b border-white/5">Process</a>
+      <a href="#pricing" class="block py-3 text-sm text-zinc-400 hover:text-white border-b border-white/5">Pricing</a>
+      <a href="#mentorship" class="block py-3 text-sm text-zinc-400 hover:text-white border-b border-white/5">Mentorship</a>
+      <a href="#contact" class="block py-3 text-sm text-zinc-400 hover:text-white border-b border-white/5">Contact</a>
+      <a href="#pricing" class="mt-4 block text-center bg-gold-400 text-dark-950 font-semibold text-sm px-6 py-3 rounded-full">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="relative min-h-screen flex items-center pt-20 md:pt-0 overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img src="https://picsum.photos/seed/learning-hero/1920/1080.jpg" alt="Learning background" class="w-full h-full object-cover opacity-60 scale-105">
+      <div class="hero-overlay absolute inset-0"></div>
+      <div class="hero-bottom absolute inset-0"></div>
+    </div>
+
+    <!-- Decorative blurs -->
+    <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-gold-400/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+    <div class="absolute bottom-1/3 left-1/4 w-64 h-64 bg-gold-400/5 rounded-full blur-[80px] animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center w-full">
+      <div>
+        <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6 opacity-0 animate-fade-in-up" style="animation-delay: 0s;">
+          <span class="w-2 h-2 bg-gold-400 rounded-full"></span>
+          <span class="text-xs font-medium uppercase tracking-wider text-zinc-400">Now Enrolling Learners</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-semibold leading-[1.05] tracking-tight mb-6 opacity-0 animate-fade-in-up" style="animation-delay: 0.2s;">
+          Grow Your Skills With
+          <span class="text-gold-400"> Expert-Led Learning</span>
+        </h1>
+
+        <p class="text-base md:text-lg font-light leading-relaxed text-zinc-400 max-w-xl mb-8 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s;">
+          Unlock your full potential with our tailored courses, mentorship, and hands-on training for career growth, new skills, and real-world results.
+        </p>
+
+        <div class="flex flex-wrap gap-4 opacity-0 animate-fade-in-up" style="animation-delay: 0.6s;">
+          <a href="#services" class="bg-gold-400 text-dark-950 font-semibold text-base px-8 py-4 rounded-full hover:bg-gold-500 transition-all gold-glow inline-flex items-center gap-2">
+            Explore Courses
+            <iconify-icon icon="lucide:arrow-right" width="18"></iconify-icon>
+          </a>
+          <a href="#about" class="border border-white/10 text-white font-semibold text-base px-8 py-4 rounded-full hover:bg-white/5 transition-all inline-flex items-center gap-2">
+            Learn More
+          </a>
+        </div>
+
+        <!-- Stats row -->
+        <div class="flex gap-8 mt-12 opacity-0 animate-fade-in-up" style="animation-delay: 0.8s;">
+          <div>
+            <div class="text-2xl font-semibold text-gold-400">2,500+</div>
+            <div class="text-xs text-zinc-500 mt-1">Learners Trained</div>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div>
+            <div class="text-2xl font-semibold text-gold-400">50+</div>
+            <div class="text-xs text-zinc-500 mt-1">Expert Mentors</div>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div>
+            <div class="text-2xl font-semibold text-gold-400">95%</div>
+            <div class="text-xs text-zinc-500 mt-1">Success Rate</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Right: Floating Card -->
+      <div class="hidden lg:flex justify-center opacity-0 animate-fade-in-up" style="animation-delay: 0.6s;">
+        <div class="relative float-anim">
+          <div class="glass-card rounded-2xl p-8 w-[380px]">
+            <div class="w-14 h-14 bg-gold-400/10 rounded-xl flex items-center justify-center mb-5">
+              <iconify-icon icon="lucide:graduation-cap" width="28" class="text-gold-400"></iconify-icon>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Start Learning Today</h3>
+            <p class="text-sm text-zinc-400 font-light leading-relaxed mb-5">Join thousands of learners building in-demand skills with expert-led programs.</p>
+            <div class="flex -space-x-2 mb-4">
+              <img src="https://picsum.photos/seed/avatar1/40/40.jpg" class="w-8 h-8 rounded-full border-2 border-dark-900">
+              <img src="https://picsum.photos/seed/avatar2/40/40.jpg" class="w-8 h-8 rounded-full border-2 border-dark-900">
+              <img src="https://picsum.photos/seed/avatar3/40/40.jpg" class="w-8 h-8 rounded-full border-2 border-dark-900">
+              <img src="https://picsum.photos/seed/avatar4/40/40.jpg" class="w-8 h-8 rounded-full border-2 border-dark-900">
+              <div class="w-8 h-8 rounded-full border-2 border-dark-900 bg-gold-400/20 flex items-center justify-center text-[10px] text-gold-400 font-semibold">+2K</div>
+            </div>
+            <div class="flex items-center gap-1">
+              <iconify-icon icon="lucide:star" width="14" class="text-gold-400"></iconify-icon>
+              <iconify-icon icon="lucide:star" width="14" class="text-gold-400"></iconify-icon>
+              <iconify-icon icon="lucide:star" width="14" class="text-gold-400"></iconify-icon>
+              <iconify-icon icon="lucide:star" width="14" class="text-gold-400"></iconify-icon>
+              <iconify-icon icon="lucide:star" width="14" class="text-gold-400"></iconify-icon>
+              <span class="text-xs text-zinc-400 ml-2">4.9/5 from learners</span>
+            </div>
+          </div>
+          <!-- Glow behind card -->
+          <div class="absolute -inset-4 bg-gold-400/5 rounded-3xl blur-2xl -z-10"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0 animate-fade-in-up" style="animation-delay: 1s;">
+      <span class="text-[10px] uppercase tracking-widest text-zinc-500">Scroll</span>
+      <div class="w-5 h-8 border border-white/20 rounded-full flex justify-center pt-1.5">
+        <div class="w-1 h-2 bg-gold-400 rounded-full animate-bounce"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO SECTION ===== -->
+  <section class="py-0 px-0 bg-dark-950">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div id="videoContainer" class="relative rounded-2xl overflow-hidden cursor-pointer group reveal" onclick="playVideo()">
+        <div class="ytmVideoCoverThumbnail w-full aspect-video bg-cover bg-center" style="background-image: url('https://i.ytimg.com/vi/aXN1GTWPwFs/maxresdefault.jpg');"></div>
+        <!-- Overlay -->
+        <div id="videoOverlay" class="absolute inset-0 bg-dark-950/40 flex items-center justify-center transition-opacity duration-300 group-hover:bg-dark-950/30">
+          <div class="w-20 h-20 md:w-24 md:h-24 bg-gold-400/90 rounded-full flex items-center justify-center gold-glow group-hover:scale-110 transition-transform duration-300">
+            <iconify-icon icon="lucide:play" width="36" class="text-dark-950 ml-1"></iconify-icon>
+          </div>
+        </div>
+        <!-- Gradient edges -->
+        <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 80px 20px rgba(5,5,5,0.6);"></div>
+      </div>
+      <!-- Hidden iframe (loaded on click) -->
+      <div id="videoIframeWrap" class="hidden rounded-2xl overflow-hidden aspect-video"></div>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="border-y border-white/5 py-5 overflow-hidden mask-fade bg-dark-900">
+    <div class="flex animate-scroll-infinite whitespace-nowrap">
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Web Development</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> UI/UX Design</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Data Science</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Digital Marketing</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Product Management</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Cybersecurity</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Cloud Computing</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Mobile Development</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Web Development</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> UI/UX Design</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Data Science</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Digital Marketing</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Product Management</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Cybersecurity</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Cloud Computing</span>
+      <span class="mx-8 text-sm font-medium text-zinc-500 uppercase tracking-wider flex items-center gap-3"><iconify-icon icon="lucide:diamond" width="14" class="text-gold-400/40"></iconify-icon> Mobile Development</span>
+    </div>
+  </div>
+
+  <!-- ===== WHAT WE DO ===== -->
+  <section id="about" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <span class="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-4 block">What we do</span>
+          <h2 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight mb-6">
+            Driving a better way of <span class="text-gradient">learning & growth</span>
+          </h2>
+          <p class="text-base font-light leading-relaxed text-zinc-400 mb-8">
+            Find a team of educators and mentors you can rely on. Every day, we build trust through communication, transparency, and real results that transform careers.
+          </p>
+          <a href="#services" class="inline-flex items-center gap-2 text-gold-400 font-medium text-sm hover:gap-3 transition-all">
+            See what we can do more for you!
+            <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 reveal" style="transition-delay: 0.2s;">
+          <div class="glass-card rounded-2xl p-6 text-center">
+            <div class="w-12 h-12 bg-gold-400/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <iconify-icon icon="lucide:book-open" width="22" class="text-gold-400"></iconify-icon>
+            </div>
+            <h4 class="font-semibold text-sm mb-1">Structured Courses</h4>
+            <p class="text-xs text-zinc-500">Curriculum designed by industry experts</p>
+          </div>
+          <div class="glass-card rounded-2xl p-6 text-center mt-8">
+            <div class="w-12 h-12 bg-gold-400/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <iconify-icon icon="lucide:users" width="22" class="text-gold-400"></iconify-icon>
+            </div>
+            <h4 class="font-semibold text-sm mb-1">1-on-1 Mentorship</h4>
+            <p class="text-xs text-zinc-500">Personalized guidance from professionals</p>
+          </div>
+          <div class="glass-card rounded-2xl p-6 text-center">
+            <div class="w-12 h-12 bg-gold-400/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <iconify-icon icon="lucide:code-2" width="22" class="text-gold-400"></iconify-icon>
+            </div>
+            <h4 class="font-semibold text-sm mb-1">Hands-On Projects</h4>
+            <p class="text-xs text-zinc-500">Build real portfolio-worthy work</p>
+          </div>
+          <div class="glass-card rounded-2xl p-6 text-center mt-8">
+            <div class="w-12 h-12 bg-gold-400/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <iconify-icon icon="lucide:award" width="22" class="text-gold-400"></iconify-icon>
+            </div>
+            <h4 class="font-semibold text-sm mb-1">Certification</h4>
+            <p class="text-xs text-zinc-500">Recognized credentials upon completion</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OPTIMIZE / WHY SECTION ===== -->
+  <section class="py-24 px-6 bg-dark-900">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal relative">
+        <div class="relative rounded-2xl overflow-hidden">
+          <img src="https://picsum.photos/seed/learning-optimize/600/500.jpg" alt="Learning" class="w-full h-[400px] object-cover rounded-2xl">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-950/60 to-transparent rounded-2xl"></div>
+        </div>
+        <!-- Floating stat card -->
+        <div class="absolute -bottom-6 -right-4 md:right-6 glass-card rounded-xl p-4 gold-glow">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gold-400/20 rounded-lg flex items-center justify-center">
+              <iconify-icon icon="lucide:trending-up" width="20" class="text-gold-400"></iconify-icon>
+            </div>
+            <div>
+              <div class="text-lg font-semibold">150%</div>
+              <div class="text-[11px] text-zinc-400">Career Growth</div>
+            </div>
+          </div>
+        </div>
+        <!-- Scan line effect -->
+        <div class="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+          <div class="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent animate-scan"></div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay: 0.2s;">
+        <span class="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-4 block">Accelerate Your Growth</span>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-6">
+          Acquire high-value skills with our <span class="text-gold-400">tailored programs</span>
+        </h2>
+        <p class="text-base font-light leading-relaxed text-zinc-400 mb-8">
+          With years of experience in tech, design, and business education, we understand the unique challenges each learner faces. From helping a beginner land their first tech role to upskilling a professional for a senior position — our expertise lies in transforming learning ambitions into measurable success. We don't just teach — we build lasting mentorships that help learners scale, thrive, and outpace their competition.
+        </p>
+        <a href="#process" class="inline-flex items-center gap-2 bg-gold-400 text-dark-950 font-semibold text-sm px-6 py-3 rounded-full hover:bg-gold-500 transition-all gold-glow">
+          Read More
+          <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY YOU NEED THIS ===== -->
+  <section id="services" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <span class="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-4 block">Why Learn With Us</span>
+        <h2 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight mb-4">
+          Why you need <span class="text-gradient">structured learning</span>
+        </h2>
+        <p class="text-base font-light leading-relaxed text-zinc-400">
+          In today's fast-paced world, continuous learning is essential to stay relevant, increase your value, and advance your career. It helps you stay ahead of the curve and unlock new opportunities.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass-card rounded-2xl p-8 reveal" style="transition-delay: 0s;">
+          <div class="w-14 h-14 bg-gold-400/10 rounded-xl flex items-center justify-center mb-6">
+            <iconify-icon icon="lucide:target" width="26" class="text-gold-400"></iconify-icon>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Career-Focused Curriculum</h3>
+          <p class="text-sm text-zinc-400 font-light leading-relaxed">Every course is built around what employers actually need. Learn skills that translate directly to job opportunities and promotions.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-8 reveal" style="transition-delay: 0.15s;">
+          <div class="w-14 h-14 bg-gold-400/10 rounded-xl flex items-center justify-center mb-6">
+            <iconify-icon icon="lucide:rocket" width="26" class="text-gold-400"></iconify-icon>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Fast-Track Programs</h3>
+          <p class="text-sm text-zinc-400 font-light leading-relaxed">Skip the fluff. Our intensive programs get you from zero to job-ready in weeks, not years, without sacrificing depth.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-8 reveal" style="transition-delay: 0.3s;">
+          <div class="w-14 h-14 bg-gold-400/10 rounded-xl flex items-center justify-center mb-6">
+            <iconify-icon icon="lucide:shield-check" width="26" class="text-gold-400"></iconify-icon>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Community & Support</h3>
+          <p class="text-sm text-zinc-400 font-light leading-relaxed">You're never alone. Access a vibrant community of peers, mentors, and support staff dedicated to your success.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="#pricing" class="inline-flex items-center gap-2 text-gold-400 font-medium text-sm hover:gap-3 transition-all border border-gold-400/30 px-6 py-3 rounded-full hover:bg-gold-400/5">
+          See the Process
+          <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARTNERS FOR GROWTH ===== -->
+  <section class="py-24 px-6 bg-dark-900 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-80 h-80 bg-gold-400/5 rounded-full blur-[100px]"></div>
+    <div class="max-w-7xl mx-auto relative">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <span class="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-4 block">Partners For Growth</span>
+          <h2 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight mb-6">
+            Revolutionise the Way You <span class="text-gold-400">Learn & Grow</span>
+          </h2>
+          <p class="text-base font-light leading-relaxed text-zinc-400 mb-6">
+            We are a team of educators and industry experts you can rely on. Every day, we build trust through communication, transparency, and results.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-xs text-zinc-400">Flexible Schedules</span>
+            <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-xs text-zinc-400">Live Sessions</span>
+            <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-xs text-zinc-400">Recorded Content</span>
+            <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-xs text-zinc-400">Lifetime Access</span>
+            <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-xs text-zinc-400">Portfolio Review</span>
+            <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-xs text-zinc-400">Job Placement</span>
+          </div>
+        </div>
+
+        <div class="reveal" style="transition-delay: 0.2s;">
+          <div class="glass-card rounded-2xl overflow-hidden">
+            <img src="https://picsum.photos/seed/classroom-learning/600/400.jpg" alt="Learning environment" class="w-full h-[350px] object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS / STEPS ===== -->
+  <section id="process" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div class="lg:sticky lg:top-32 reveal">
+          <span class="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-4 block">How It Works</span>
+          <h2 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight mb-6">
+            Take Control of Your <span class="text-gold-400">Learning Journey</span>
+          </h2>
+          <p class="text-base font-light leading-relaxed text-zinc-400 mb-8">
+            Streamline your growth, boost your skills, and enhance your career prospects with our tailored learning paths. Gain confidence, build expertise, and optimize your time to empower your future.
+          </p>
+          <p class="text-sm text-zinc-500 font-light leading-relaxed">
+            Transform challenges into opportunities — start your learning journey with us today!
+          </p>
+          <a href="#pricing" class="mt-8 inline-flex items-center gap-2 bg-gold-400 text-dark-950 font-semibold text-sm px-6 py-3 rounded-full hover:bg-gold-500 transition-all gold-glow">
+            See Packages
+            <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+          </a>
+        </div>
+
+        <div class="space-y-6">
+          <div class="step-line reveal" style="transition-delay: 0s;">
+            <div class="glass-card rounded-2xl p-6 flex gap-5 items-start">
+              <div class="w-12 h-12 bg-gold-400/10 border border-gold-400/20 rounded-xl flex items-center justify-center shrink-0">
+                <span class="text-gold-400 font-semibold text-sm">01</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-1">Sign Up</h4>
+                <p class="text-sm text-zinc-400 font-light">Create your account to get started. It takes less than 2 minutes.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-line reveal" style="transition-delay: 0.15s;">
+            <div class="glass-card rounded-2xl p-6 flex gap-5 items-start">
+              <div class="w-12 h-12 bg-gold-400/10 border border-gold-400/20 rounded-xl flex items-center justify-center shrink-0">
+                <span class="text-gold-400 font-semibold text-sm">02</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-1">Choose a Program</h4>
+                <p class="text-sm text-zinc-400 font-light">Select the learning path that best fits your goals and schedule.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-line reveal" style="transition-delay: 0.3s;">
+            <div class="glass-card rounded-2xl p-6 flex gap-5 items-start">
+              <div class="w-12 h-12 bg-gold-400/10 border border-gold-400/20 rounded-xl flex items-center justify-center shrink-0">
+                <span class="text-gold-400 font-semibold text-sm">03</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-1">Start Learning</h4>
+                <p class="text-sm text-zinc-400 font-light">Dive into live classes, hands-on projects, and mentorship sessions.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-line reveal" style="transition-delay: 0.45s;">
+            <div class="glass-card rounded-2xl p-6 flex gap-5 items-start">
+              <div class="w-12 h-12 bg-gold-400/10 border border-gold-400/20 rounded-xl flex items-center justify-center shrink-0">
+                <span class="text-gold-400 font-semibold text-sm">04</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-1">Get Certified</h4>
+                <p class="text-sm text-zinc-400 font-light">Complete your program, earn your certificate, and land your dream role.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARALLAX DIVIDER ===== -->
+  <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden" style="background: url('https://picsum.photos/seed/parallax-learn/1920/800.jpg') center/cover fixed;">
+    <div class="absolute inset-0 bg-dark-950/80"></div>
+    <div class="relative z-10 text-center px-6 reveal">
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight mb-4">
+        Your Future Starts <span class="text-gold-400">Here</span>
+      </h2>
+      <p class="text-zinc-400 font-light max-w-lg mx-auto mb-8">Every expert was once a beginner. Take the first step today.</p>
+      <a href="#pricing" class="bg-gold-400 text-dark-950 font-semibold px-8 py-4 rounded-full hover:bg-gold-500 transition-all gold-glow inline-flex items-center gap-2">
+        View Plans
+        <iconify-icon icon="lucide:arrow-right" width="18"></iconify-icon>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <span class="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-4 block">Pricing & Plans</span>
+        <h2 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight mb-4">
+          Hot-selling <span class="text-gradient">Packages</span>
+        </h2>
+        <p class="text-base font-light leading-relaxed text-zinc-400">
+          To get the best results for you, we make sure all your learning channels are integrated together.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Starter -->
+        <div class="glass-card rounded-2xl p-8 reveal flex flex-col" style="transition-delay: 0s;">
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-1">Starter</h3>
+            <p class="text-xs text-zinc-500">Perfect for beginners</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-semibold">$49</span>
+            <span class="text-zinc-500 text-sm">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Access to 1 course</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Recorded video lessons</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Community access</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Quizzes & assignments</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-500"><iconify-icon icon="lucide:x" width="16" class="text-zinc-600"></iconify-icon> Live mentorship sessions</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-500"><iconify-icon icon="lucide:x" width="16" class="text-zinc-600"></iconify-icon> Certificate</li>
+          </ul>
+          <a href="#contact" class="block text-center border border-white/10 text-white font-semibold text-sm px-6 py-3.5 rounded-full hover:bg-white/5 transition-all">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Pro (Popular) -->
+        <div class="pricing-popular rounded-2xl p-8 reveal flex flex-col relative" style="transition-delay: 0.15s;">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold-400 text-dark-950 text-[10px] font-bold uppercase tracking-wider px-4 py-1 rounded-full">
+            Most Popular
+          </div>
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-1">Pro Learner</h3>
+            <p class="text-xs text-zinc-500">For serious learners</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-semibold text-gold-400">$129</span>
+            <span class="text-zinc-500 text-sm">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Access to 5 courses</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Live + recorded lessons</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Weekly mentorship calls</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Hands-on projects</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Certificate of completion</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-500"><iconify-icon icon="lucide:x" width="16" class="text-zinc-600"></iconify-icon> 1-on-1 mentorship</li>
+          </ul>
+          <a href="#contact" class="block text-center bg-gold-400 text-dark-950 font-semibold text-sm px-6 py-3.5 rounded-full hover:bg-gold-500 transition-all gold-glow">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Premium -->
+        <div class="glass-card rounded-2xl p-8 reveal flex flex-col" style="transition-delay: 0.3s;">
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-1">Premium</h3>
+            <p class="text-xs text-zinc-500">Full experience</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-semibold">$299</span>
+            <span class="text-zinc-500 text-sm">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Unlimited course access</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> All live sessions</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Daily 1-on-1 mentorship</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Real-world projects</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Premium certificate</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-400"><iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon> Job placement support</li>
+          </ul>
+          <a href="#contact" class="block text-center border border-white/10 text-white font-semibold text-sm px-6 py-3.5 rounded-full hover:bg-white/5 transition-all">
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENTORSHIP ===== -->
+  <section id="mentorship" class="py-24 px-6 bg-dark-900">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal order-2 lg:order-1">
+        <div class="grid grid-cols-2 gap-4">
+          <img src="https://picsum.photos/seed/mentor1/300/350.jpg" alt="Mentor" class="rounded-2xl w-full h-[200px] object-cover">
+          <img src="https://picsum.photos/seed/mentor2/300/350.jpg" alt="Mentor" class="rounded-2xl w-full h-[200px] object-cover mt-8">
+          <img src="https://picsum.photos/seed/mentor3/300/350.jpg" alt="Mentor" class="rounded-2xl w-full h-[200px] object-cover">
+          <img src="https://picsum.photos/seed/mentor4/300/350.jpg" alt="Mentor" class="rounded-2xl w-full h-[200px] object-cover mt-8">
+        </div>
+      </div>
+      <div class="reveal order-1 lg:order-2" style="transition-delay: 0.2s;">
+        <span class="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-4 block">Mentorship Program</span>
+        <h2 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight mb-6">
+          Learn From Those Who've <span class="text-gold-400">Been There</span>
+        </h2>
+        <p class="text-base font-light leading-relaxed text-zinc-400 mb-8">
+          Our mentorship program pairs you with industry professionals who guide you through every challenge. Get personalized feedback, career advice, and the accountability you need to succeed.
+        </p>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-gold-400/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon>
+            </div>
+            <div>
+              <h4 class="font-medium text-sm">Personalized Learning Path</h4>
+              <p class="text-xs text-zinc-500">Custom roadmap based on your current level and goals</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-gold-400/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon>
+            </div>
+            <div>
+              <h4 class="font-medium text-sm">Weekly Check-ins</h4>
+              <p class="text-xs text-zinc-500">Regular progress reviews to keep you on track</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-gold-400/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <iconify-icon icon="lucide:check" width="16" class="text-gold-400"></iconify-icon>
+            </div>
+            <div>
+              <h4 class="font-medium text-sm">Industry Network Access</h4>
+              <p class="text-xs text-zinc-500">Connect with professionals and potential employers</p>
+            </div>
+          </div>
+        </div>
+        <a href="#contact" class="inline-flex items-center gap-2 bg-gold-400 text-dark-950 font-semibold text-sm px-6 py-3 rounded-full hover:bg-gold-500 transition-all gold-glow">
+          Apply for Mentorship
+          <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="py-24 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-950"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-400/5 rounded-full blur-[120px]"></div>
+
+    <div class="max-w-3xl mx-auto text-center relative z-10 reveal">
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight mb-6">
+        Are You Ready to <span class="text-gold-400">Level Up?</span>
+      </h2>
+      <p class="text-base md:text-lg font-light leading-relaxed text-zinc-400 mb-10">
+        Let's help you build in-demand skills, connect with mentors, and achieve real career results with LearnEdge's expert-led programs.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#contact" class="bg-gold-400 text-dark-950 font-semibold text-base px-8 py-4 rounded-full hover:bg-gold-500 transition-all gold-glow inline-flex items-center gap-2">
+          Get Started Today
+          <iconify-icon icon="lucide:arrow-right" width="18"></iconify-icon>
+        </a>
+        <a href="#pricing" class="border border-white/10 text-white font-semibold text-base px-8 py-4 rounded-full hover:bg-white/5 transition-all">
+          View Pricing
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-24 px-6 bg-dark-900">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div class="reveal">
+          <span class="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-4 block">Contact Us</span>
+          <h2 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight mb-6">
+            Let's Talk About Your <span class="text-gold-400">Goals</span>
+          </h2>
+          <p class="text-base font-light leading-relaxed text-zinc-400 mb-10">
+            Have questions about our programs? Want to discuss a custom learning path? Reach out and we'll get back to you within 24 hours.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-gold-400/10 rounded-xl flex items-center justify-center shrink-0">
+                <iconify-icon icon="lucide:map-pin" width="20" class="text-gold-400"></iconify-icon>
+              </div>
+              <div>
+                <h4 class="font-medium text-sm mb-1">Visit Us</h4>
+                <p class="text-sm text-zinc-400">Block 5A, Olufemi Ijatula Street, Greenland Estate, Lekki-Epe Expy, Lagos, Nigeria.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-gold-400/10 rounded-xl flex items-center justify-center shrink-0">
+                <iconify-icon icon="lucide:phone" width="20" class="text-gold-400"></iconify-icon>
+              </div>
+              <div>
+                <h4 class="font-medium text-sm mb-1">Call Us</h4>
+                <p class="text-sm text-zinc-400">+234 916 162 3013</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-gold-400/10 rounded-xl flex items-center justify-center shrink-0">
+                <iconify-icon icon="lucide:mail" width="20" class="text-gold-400"></iconify-icon>
+              </div>
+              <div">
+                <h4 class="font-medium text-sm mb-1">Email Us</h4>
+                <p class="text-sm text-zinc-400">learnedge@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal" style="transition-delay: 0.2s;">
+          <form id="contactForm" class="glass-card rounded-2xl p-8 space-y-5">
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="text-xs text-zinc-500 mb-1.5 block">First Name</label>
+                <input type="text" placeholder="John" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-gold-400/40 transition-colors">
+              </div>
+              <div>
+                <label class="text-xs text-zinc-500 mb-1.5 block">Last Name</label>
+                <input type="text" placeholder="Doe" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-gold-400/40 transition-colors">
+              </div>
+            </div>
+            <div>
+              <label class="text-xs text-zinc-500 mb-1.5 block">Email</label>
+              <input type="email" placeholder="john@example.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-gold-400/40 transition-colors">
+            </div>
+            <div>
+              <label class="text-xs text-zinc-500 mb-1.5 block">Interested In</label>
+              <select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-zinc-400 focus:outline-none focus:border-gold-400/40 transition-colors appearance-none">
+                <option value="">Select a program</option>
+                <option value="web">Web Development</option>
+                <option value="design">UI/UX Design</option>
+                <option value="data">Data Science</option>
+                <option value="marketing">Digital Marketing</option>
+                <option value="mentorship">Mentorship Program</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-xs text-zinc-500 mb-1.5 block">Message</label>
+              <textarea rows="4" placeholder="Tell us about your goals..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-gold-400/40 transition-colors resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-gold-400 text-dark-950 font-semibold text-sm py-4 rounded-full hover:bg-gold-500 transition-all gold-glow flex items-center justify-center gap-2">
+              Send Message
+              <iconify-icon icon="lucide:send" width="16"></iconify-icon>
+            </button>
+            <div id="formMessage" class="hidden text-center text-sm py-2 rounded-lg"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-white/5 py-16 px-6 bg-dark-950">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <a href="#" class="block mb-4">
+            <img src="https://citilitemediasolutions.com/wp-content/uploads/2025/02/logo-tag-1024x463.png" alt="LearnEdge Logo" class="h-10 w-auto object-contain">
+          </a>
+          <p class="text-sm text-zinc-500 font-light leading-relaxed max-w-md mb-6">
+            At LearnEdge, a learning agency in Lagos, we help beginners and professionals around the world build in-demand skills through expert-led courses, mentorship, and hands-on training.
+          </p>
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-gold-400/10 hover:border-gold-400/20 transition-all">
+              <iconify-icon icon="lucide:facebook" width="16" class="text-zinc-400"></iconify-icon>
+            </a>
+            <a href="#" class="w-9 h-9 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-gold-400/10 hover:border-gold-400/20 transition-all">
+              <iconify-icon icon="lucide:twitter" width="16" class="text-zinc-400"></iconify-icon>
+            </a>
+            <a href="#" class="w-9 h-9 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-gold-400/10 hover:border-gold-400/20 transition-all">
+              <iconify-icon icon="lucide:instagram" width="16" class="text-zinc-400"></iconify-icon>
+            </a>
+            <a href="#" class="w-9 h-9 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-gold-400/10 hover:border-gold-400/20 transition-all">
+              <iconify-icon icon="lucide:linkedin" width="16" class="text-zinc-400"></iconify-icon>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-sm mb-4">Quick Links</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#home" class="text-sm text-zinc-500 hover:text-gold-400 transition-colors">Home</a></li>
+            <li><a href="#about" class="text-sm text-zinc-500 hover:text-gold-400 transition-colors">About Us</a></li>
+            <li><a href="#contact" class="text-sm text-zinc-500 hover:text-gold-400 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-sm mb-4">Extra Links</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#mentorship" class="text-sm text-zinc-500 hover:text-gold-400 transition-colors">Mentorship</a></li>
+            <li><a href="#services" class="text-sm text-zinc-500 hover:text-gold-400 transition-colors">Our Services</a></li>
+            <li><a href="#pricing" class="text-sm text-zinc-500 hover:text-gold-400 transition-colors">Pricing</a></li>
+          </ul>
+
+          <h4 class="font-semibold text-sm mb-4 mt-8">Support</h4>
+          <ul class="space-y-2.5">
+            <li class="flex items-center gap-2 text-sm text-zinc-500"><iconify-icon icon="lucide:phone" width="12"></iconify-icon> +234 916 162 3013</li>
+            <li class="flex items-center gap-2 text-sm text-zinc-500"><iconify-icon icon="lucide:mail" width="12"></iconify-icon> learnedge@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-zinc-600">Copyright © LearnEdge | All rights reserved. 2025</p>
+        <div class="flex gap-6">
+          <a href="#" class="text-xs text-zinc-600 hover:text-zinc-400 transition-colors">Privacy Policy</a>
+          <a href="#" class="text-xs text-zinc-600 hover:text-zinc-400 transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-gold-400 text-dark-950 rounded-full flex items-center justify-center shadow-lg hover:bg-gold-500 transition-all opacity-0 pointer-events-none z-50 gold-glow">
+    <iconify-icon icon="lucide:chevron-up" width="20"></iconify-icon>
+  </button>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div id="toast" class="fixed top-24 right-8 z-50 bg-dark-800 border border-gold-400/20 rounded-xl px-6 py-4 shadow-2xl transform translate-x-[120%] transition-transform duration-500 flex items-center gap-3">
+    <iconify-icon icon="lucide:check-circle" width="20" class="text-gold-400"></iconify-icon>
+    <span id="toastMessage" class="text-sm text-zinc-300">Message sent successfully!</span>
+  </div>
+
+  <script>
+    // ===== VIDEO PLAY =====
+    function playVideo() {
+      const container = document.getElementById('videoContainer');
+      const overlay = document.getElementById('videoOverlay');
+      const iframeWrap = document.getElementById('videoIframeWrap');
+      container.classList.add('hidden');
+      iframeWrap.classList.remove('hidden');
+      iframeWrap.innerHTML = '<iframe src="https://www.youtube.com/embed/aXN1GTWPwFs?autoplay=1&rel=0" class="w-full h-full aspect-video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    }
+
+    // ===== MOBILE MENU =====
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    let menuOpen = false;
+
+    mobileToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.setAttribute('icon', menuOpen ? 'lucide:x' : 'lucide:menu');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuOpen = false;
+        menuIcon.setAttribute('icon', 'lucide:menu');
+      });
+    });
+
+    // ===== NAVBAR SCROLL EFFECT =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-dark-950/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+      } else {
+        navbar.classList.remove('bg-dark-950/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+      }
+    });
+
+    // ===== SCROLL REVEAL =====
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ===== BACK TO TOP =====
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTop.classList.remove('opacity-0', 'pointer-events-none');
+        backToTop.classList.add('opacity-100');
+      } else {
+        backToTop.classList.add('opacity-0', 'pointer-events-none');
+        backToTop.classList.remove('opacity-100');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== TOAST =====
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      toastMessage.textContent = message;
+      toast.classList.remove('translate-x-[120%]');
+      toast.classList.add('translate-x-0');
+      setTimeout(() => {
+        toast.classList.add('translate-x-[120%]');
+        toast.classList.remove('translate-x-0');
+      }, 3000);
+    }
+
+    // ===== CONTACT FORM =====
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const inputs = e.target.querySelectorAll('input, textarea, select');
+      let allFilled = true;
+      inputs.forEach(input => {
+        if (input.type !== 'submit' && !input.value.trim()) {
+          allFilled = false;
+          input.style.borderColor = 'rgba(239,68,68,0.4)';
+          setTimeout(() => { input.style.borderColor = ''; }, 2000);
+        }
+      });
+      if (!allFilled) {
+        showToast('Please fill in all fields.');
+        return;
+      }
+      showToast('Message sent successfully! We\'ll get back to you soon.');
+      inputs.forEach(input => { if (input.type !== 'submit') input.value = ''; });
+    });
+
+    // ===== ACTIVE NAV LINK HIGHLIGHT =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 200;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('text-white');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('text-white');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
