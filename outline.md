@@ -1,46 +1,55 @@
-# Citlite — Session outline (~60 min)
+# How this session runs (~60 minutes)
 
-**Title:** Vibe coding to a live URL — *spec → z.ai → QA → Vercel/Netlify*
-
-**Facilitator:** [Ayobami Akinlolu-ojo](https://ayobami.ai4africa.app/) · CTO & Founder · [AI4Africa](https://ai4africa.app)
+**[Ayobami Akinlolu-ojo](https://ayobami.ai4africa.app/)** · CTO & Founder · [AI4Africa](https://ai4africa.app)
 
 <a href="https://ayobami.ai4africa.app/"><img src="https://ayobami.ai4africa.app/images/personal_img/coperate-suite-CEO-style.jpg" alt="Ayobami Akinlolu-ojo" width="240" /></a>
 
----
+**Citlite:** *Vibe coding to a live URL* — spec → **z.ai** → QA → **Vercel / Netlify**
 
-## Minute-by-minute
-
-| Block | Time | You do / they do |
-|-------|------|------------------|
-| **Hook** | 0–5 | *“Speed with a spec—not vibes without a brain.”* Ask: *One page you’d ship in 45 minutes?* |
-| **Theory bite** | 5–12 | Outcome + constraints; generate; **you** test. Show [citlite-visual.excalidraw](citlite-visual.excalidraw). |
-| **Demo A — Spec** | 12–18 | **Acceptance criteria** for a mini page (hero, 3 bullets, CTA, footer). Vague vs testable spec. |
-| **Demo B — z.ai** | 18–35 | Generate in **z.ai** (or backup builder). Role, goal, constraints, format. |
-| **Demo C — QA** | 35–42 | Mobile width, CTA, headline aloud, one **a11y** check (heading order or focus). |
-| **Demo D — Deploy** | 42–52 | **Vercel** *or* **Netlify** — one path. Open URL on a phone. |
-| **Limits** | 52–58 | What static / builder-only stacks won’t carry (auth, webhooks, server AI, roles, data model, …). |
-| **Close** | 58–60 | One paragraph: when you’d stop vibing and engineer properly. |
+Read **[theory.md](theory.md)** for the full write-up of Part 1. The diagram for the flow is **[citlite-visual.excalidraw](citlite-visual.excalidraw)** in this repo.
 
 ---
 
-## Optional homework
+## Part 1 — Ideas (~30 minutes)
 
-- Short spec + 5 acceptance checks  
-- Screenshot or link to z.ai output  
-- Public URL + one line: what the model got wrong
-
----
-
-## Instructor notes
-
-- **z.ai blocked?** Use another UI generator — same flow.  
-- **Deploy fails?** Show the error and walk through the fix.
+| Time | What we cover |
+|------|----------------|
+| 0–3 | Why two halves: **clarity** first, then **shipping** a URL. |
+| 3–10 | **AI / LLM** in plain language — component, not magic; **you** validate when it matters. |
+| 10–13 | **Automation** vs **agent-style** — where AI usually sits in real products. |
+| 13–20 | **Software engineering** — criteria, design, verify, ship, truth. |
+| 20–26 | **Vibe coding** — definition, **history** (Karpathy, 2025), **roots** (SO → Copilot → chat → agents → builders), how people code with AI **today**. |
+| 26–30 | **Bad vs good** habits, **three tool buckets**, the loop in [citlite-visual.excalidraw](citlite-visual.excalidraw). |
 
 ---
 
-## Files
+## Part 2 — Build (~30 minutes)
 
-- [theory.md](theory.md)  
-- [citlite-visual.excalidraw](citlite-visual.excalidraw)  
-- [.presentation/deck-outline.md](.presentation/deck-outline.md)  
-- [README.md](README.md)
+| Time | What you do |
+|------|-------------|
+| 30–36 | Write **acceptance criteria** for one small page: hero, three bullets, CTA, footer. **Vague** vs **testable** spec. |
+| 36–50 | Build in **z.ai** (or another UI generator if needed). Prompts: **role, goal, constraints, format**. |
+| 50–54 | **QA:** mobile width, CTA works, read the headline out loud, **one** accessibility check (e.g. heading order or focus). |
+| 54–58 | **Deploy** with **Vercel** *or* **Netlify** — one path for the group. Open the URL on your phone. |
+| 58–60 | **Wrap:** what a builder **won’t** solve; one sentence on when **vibe** ends and **engineering** starts. |
+
+---
+
+## After the session (optional)
+
+- Your spec + five acceptance checks  
+- Screenshot or link to what **z.ai** produced  
+- Your public URL + one line: what the model got **wrong**
+
+---
+
+## Materials in this repo
+
+| | |
+|--|--|
+| [theory.md](theory.md) | Full notes for Part 1 |
+| [citlite-visual.excalidraw](citlite-visual.excalidraw) | Flow diagram |
+| [.presentation/deck-outline.md](.presentation/deck-outline.md) | Slide headings that match the lesson |
+| [README.md](README.md) | Start here |
+
+If **z.ai** is blocked, use any similar **UI generator** — same steps. If **deploy** errors, read the message and fix step by step.

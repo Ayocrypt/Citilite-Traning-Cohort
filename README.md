@@ -4,15 +4,17 @@
 
 **[Ayobami Akinlolu-ojo](https://ayobami.ai4africa.app/)** — CTO & Founder, [AI4Africa](https://ai4africa.app)
 
-Citlite is a **one-session** pack: **spec → generate (e.g. z.ai) → QA → deploy** (Vercel or Netlify). Materials below are ready to run or remix.
+Welcome. **Citlite** is one session in two parts: **~30 minutes of ideas** (AI-assisted development, **vibe coding**, software engineering, history, good and bad habits), then **~30 minutes of building** — **z.ai**, checks, and a **live URL** on **Vercel** or **Netlify**.
 
-## Files
+**Read in order:** [theory.md](theory.md) → [outline.md](outline.md). The picture of the workflow is in [citlite-visual.excalidraw](citlite-visual.excalidraw).
 
-| File | Use |
-|------|-----|
-| [outline.md](outline.md) | Minute-by-minute run sheet |
-| [theory.md](theory.md) | Facilitator prep |
-| [.presentation/deck-outline.md](.presentation/deck-outline.md) | Slide copy |
-| [citlite-visual.excalidraw](citlite-visual.excalidraw) | Flow for the projector ([Excalidraw](https://excalidraw.com) or VS Code extension) |
+## What’s in this repo
 
-**Quick links:** [outline.md](outline.md) · [theory.md](theory.md) · [deck-outline.md](.presentation/deck-outline.md) · [citlite-visual.excalidraw](citlite-visual.excalidraw)
+| File | What it is |
+|------|------------|
+| [theory.md](theory.md) | Part 1 — the ideas, written for you to read |
+| [outline.md](outline.md) | Part 1 + Part 2 timeline |
+| [citlite-visual.excalidraw](citlite-visual.excalidraw) | Flow diagram — open in [Excalidraw](https://excalidraw.com) or your editor |
+| [.presentation/deck-outline.md](.presentation/deck-outline.md) | Slide titles that follow the same lesson |
+
+[theory.md](theory.md) · [outline.md](outline.md) · [deck-outline.md](.presentation/deck-outline.md) · [citlite-visual.excalidraw](citlite-visual.excalidraw)
