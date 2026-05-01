@@ -6,8 +6,9 @@ Demos carry the session. Copy each block into Slides, Canva, or Gamma.
 
 ## Slide 1 — Title
 - **Citlite** — From vibe to live URL  
-- **Ayobami Akinlolu-ojo** · CTO & Founder · [AI4Africa](https://ai4africa.app)  
-- ![Ayobami Akinlolu-ojo](https://avatars.githubusercontent.com/u/169593272?v=4)
+- **[Ayobami Akinlolu-ojo](https://ayobami.ai4africa.app/)** · CTO & Founder · [AI4Africa](https://ai4africa.app)  
+- ![Ayobami Akinlolu-ojo](https://ayobami.ai4africa.app/images/personal_img/coperate-suite-CEO-style.jpg)  
+- Portfolio: [ayobami.ai4africa.app](https://ayobami.ai4africa.app/)
 
 ## Slide 2 — Today
 - **spec → generate → QA → deploy**  

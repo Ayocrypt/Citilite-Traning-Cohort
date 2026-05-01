@@ -1,8 +1,8 @@
 # Citlite — Theory (compact)
 
-**Facilitator:** [Ayobami Akinlolu-ojo](https://github.com/Ayocrypt) · CTO & Founder · [AI4Africa](https://ai4africa.app)
+**Facilitator:** [Ayobami Akinlolu-ojo](https://ayobami.ai4africa.app/) · CTO & Founder · [AI4Africa](https://ai4africa.app)
 
-![Ayobami Akinlolu-ojo](https://avatars.githubusercontent.com/u/169593272?v=4)
+[![Ayobami Akinlolu-ojo](https://ayobami.ai4africa.app/images/personal_img/coperate-suite-CEO-style.jpg)](https://ayobami.ai4africa.app/)
 
 One session arc: **clear outcome → shipped static page**.
 

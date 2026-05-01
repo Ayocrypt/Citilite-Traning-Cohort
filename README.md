@@ -1,8 +1,8 @@
 # Citilite-Traning-Cohort
 
-![Ayobami Akinlolu-ojo](https://avatars.githubusercontent.com/u/169593272?v=4)
+[![Ayobami Akinlolu-ojo](https://ayobami.ai4africa.app/images/personal_img/coperate-suite-CEO-style.jpg)](https://ayobami.ai4africa.app/)
 
-**Ayobami Akinlolu-ojo** — CTO & Founder, [AI4Africa](https://ai4africa.app)
+**[Ayobami Akinlolu-ojo](https://ayobami.ai4africa.app/)** — CTO & Founder, [AI4Africa](https://ai4africa.app)
 
 Citlite is a **one-session** pack: **spec → generate (e.g. z.ai) → QA → deploy** (Vercel or Netlify). Materials below are ready to run or remix.
 
