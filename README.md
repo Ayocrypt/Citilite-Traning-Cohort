@@ -6,4 +6,13 @@
 
 **What this is not:** the full program, week-by-week materials, assignments, or everything paying students get. Pull **a few** patterns you are comfortable sharing; keep the rest in the paid track.
 
-Use `outline.md` to run the room, `theory.md` for your own prep, `.presentation/deck-outline.md` if you want slides, and `citlite-visual.excalidraw` on the projector.
+## Files in this repo
+
+| File | Use |
+|------|-----|
+| [outline.md](outline.md) | Minute-by-minute run sheet for the live session |
+| [theory.md](theory.md) | Compact prep notes for the instructor |
+| [.presentation/deck-outline.md](.presentation/deck-outline.md) | Slide-by-slide prompts if you build a deck |
+| [citlite-visual.excalidraw](citlite-visual.excalidraw) | Flow diagram for the projector (open in [Excalidraw](https://excalidraw.com) or the VS Code extension) |
+
+**Quick links:** [outline.md](outline.md) · [theory.md](theory.md) · [deck-outline.md](.presentation/deck-outline.md) · [citlite-visual.excalidraw](citlite-visual.excalidraw)
