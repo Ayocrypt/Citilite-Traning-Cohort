@@ -1,6 +1,6 @@
 # Citilite-Traning-Cohort
 
-[![Ayobami Akinlolu-ojo](https://ayobami.ai4africa.app/images/personal_img/coperate-suite-CEO-style.jpg)](https://ayobami.ai4africa.app/)
+<a href="https://ayobami.ai4africa.app/"><img src="https://ayobami.ai4africa.app/images/personal_img/coperate-suite-CEO-style.jpg" alt="Ayobami Akinlolu-ojo" width="240" /></a>
 
 **[Ayobami Akinlolu-ojo](https://ayobami.ai4africa.app/)** — CTO & Founder, [AI4Africa](https://ai4africa.app)
 
